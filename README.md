@@ -129,4 +129,69 @@ void loop() {
       break;
     }
 }
+/////////////////////////////////Nhất//////////////////////////////////////
+int mode10 = 2;
+int mode11 = 2;
+bool isPress8 = true;
+bool isPress9 = true;
+
+void setup() {
+  pinMode(10,INPUT);
+  pinMode(11,INPUT);
+  pinMode(8,OUTPUT);
+  pinMode(9,OUTPUT);
+}
+
+void loop() {
+  int btn1 = digitalRead(10);
+  int btn2 = digitalRead(11);
+
+  if(btn1 == 1){
+    isPress8 = true;
+  }
+  else{
+    if(isPress8){
+      mode10 =(mode10 == 2?mode10 = 1:mode10 + 1);
+      if(mode10 == 1){
+        mode10 = 1;
+      }
+      if(mode10 == 2){
+        mode10 = 2;
+      }
+      isPress8 = false;
+    }
+  }
+      switch(mode10){
+      case 1:
+      digitalWrite(8,0);
+      break;
+      case 2:
+      digitalWrite(8,1);
+      break;
+    }
+    //
+    if(btn2 == 1){
+    isPress9 = true;
+  }
+  else{
+    if(isPress9){
+      mode11 =(mode11 == 2?mode11 = 1:mode11 + 1);
+      if(mode11 == 1){
+        mode11 = 1;
+      }
+      if(mode11 == 2){
+        mode11 = 2;
+      }
+      isPress9 = false;
+    }
+  }
+      switch(mode11){
+      case 1:
+      digitalWrite(9,0);
+      break;
+      case 2:
+      digitalWrite(9,1);
+      break;
+    }
+}
 //
